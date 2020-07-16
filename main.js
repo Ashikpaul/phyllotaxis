@@ -68,7 +68,7 @@ const startDrawing = () => {
   circles.forEach(c => { c.draw(ctx) });
   n++;
   
-  if (n < 1000) 
+  if (n < 800) 
     requestAnimationFrame(startDrawing);
   else 
     startRotate();
