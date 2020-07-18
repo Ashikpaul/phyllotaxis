@@ -6,16 +6,16 @@ var h = canvas.height = window.innerHeight;
 var circles = [];
 var n = 0, cx = w/2, cy = h/2;
 
-ctx.translate(w / 2, h / 2);
+ctx.translate(cx, cy);
 
 class circle {
   constructor() {
     let a = (n * 137.5)/180 * Math.PI;
-    let rad = 6 * Math.sqrt(n);
+    let rad = 5 * Math.sqrt(n);
     this.x = rad * Math.cos(a);
     this.y = rad * Math.sin(a);
     if (n < 50) {
-      this.strokeStyle = "lime";
+      this.strokeStyle = "black";
       this.fillStyle = 'yellow';
     } else {
       this.strokeStyle = "black";
@@ -27,7 +27,7 @@ class circle {
     ctx.save();
     ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, 6, 0, 2 * Math.PI);
+    ctx.arc(this.x, this.y, 5, 0, 2 * Math.PI);
     ctx.strokeStyle = this.strokeStyle;
     ctx.fillStyle = this.fillStyle;
     ctx.fill();
@@ -49,14 +49,14 @@ const startDrawing = () => {
   ctx.textAlign = "center";
   ctx.font = "30px monospace";
   ctx.fillStyle = "yellow";
-  ctx.fillText('Phyllotaxis', 0, -380);
-  ctx.fillStyle = "red";
-  ctx.font = "20px monospace";
-  ctx.fillText("WARNING: Don't stare at it for long", 0, -340);
+  ctx.fillText('Phyllotaxis', 0, -cy+40);
+  // ctx.fillStyle = "red";
+  // ctx.font = "20px monospace";
+  // ctx.fillText("WARNING: Don't stare at it for long", 0, -cy+80);
   ctx.textAlign = "left";
   ctx.fillStyle = "white";
   ctx.font = "15px monospace";
-  ctx.fillText('By Ashik', 20, -365);
+  ctx.fillText('By Ashik', 20, -cy+60);
   ctx.beginPath();
   ctx.moveTo(0, h/2);
   ctx.lineWidth = 10;
@@ -68,7 +68,7 @@ const startDrawing = () => {
   circles.forEach(c => { c.draw(ctx) });
   n++;
   
-  if (n < 800) 
+  if (n < 1100) 
     requestAnimationFrame(startDrawing);
   else 
     startRotate();
