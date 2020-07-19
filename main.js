@@ -50,13 +50,10 @@ const startDrawing = () => {
   ctx.font = "30px monospace";
   ctx.fillStyle = "yellow";
   ctx.fillText('Phyllotaxis', 0, -cy+40);
-  // ctx.fillStyle = "red";
-  // ctx.font = "20px monospace";
-  // ctx.fillText("WARNING: Don't stare at it for long", 0, -cy+80);
   ctx.textAlign = "left";
   ctx.fillStyle = "white";
-  ctx.font = "15px monospace";
-  ctx.fillText('By Ashik', 20, -cy+60);
+  ctx.font = "italic normal 13px monospace";
+  ctx.fillText("Made with 💖 by Ashik Paul", -cx, cy-20);
   ctx.beginPath();
   ctx.moveTo(0, h/2);
   ctx.lineWidth = 10;
